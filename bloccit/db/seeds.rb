@@ -29,6 +29,12 @@
    )
  end
  
+ puts "#{Post.count}"
+ Post.find_or_create_by(title: "My Unique title", body: "My Unique body")
+ puts "#{Post.count}"
+ 
+#comment aspect? 
+ 
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
