@@ -30,7 +30,10 @@
  end
  
  puts "#{Post.count}"
+ puts "#{Comment.count}"
  Post.find_or_create_by(title: "My Unique title", body: "My Unique body")
+ Comment.find_or_create_by(post: posts.sample, body: "My Unique comment")
+ puts "#{Comment.count}"
  puts "#{Post.count}"
  
 #comment aspect? 
