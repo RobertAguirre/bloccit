@@ -27,4 +27,10 @@
      letters.shuffle!
      letters[0,rand(3..8)].join
    end
+   
+   def self.random_number
+     letters = (0..9).to_a
+     letters[0,rand(1..2)].join.to_i
+   end   
+   
  end
