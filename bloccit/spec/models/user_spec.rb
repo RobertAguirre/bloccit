@@ -35,6 +35,10 @@ RSpec.describe User, type: :model do
        expect(user).to respond_to(:admin?)
      end
  
+      it "responds to moderator?" do
+       expect(user).to respond_to(:moderator?)
+     end
+     
  # #3
      it "responds to member?" do
        expect(user).to respond_to(:member?)
@@ -59,7 +63,24 @@ RSpec.describe User, type: :model do
        end
      end
  
- # #6
+     context "moderator" do
+       before do
+         user.moderator!
+       end
+ 
+       it "returns false for #member?" do
+         expect(user.member?).to be_falsey
+       end
+       
+       it "returns false for #admin?" do
+           expect(user.admin?).to be_falsey
+       end
+ 
+       it "returns true for #moderator?" do
+         expect(user.moderator?).to be_truthy
+       end
+     end
+
      context "admin user" do
        before do
          user.admin!
