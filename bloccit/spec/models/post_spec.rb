@@ -5,6 +5,8 @@ RSpec.describe Post, type: :model do
    let(:description) { RandomData.random_paragraph }
    let(:title) { RandomData.random_sentence }
    let(:body) { RandomData.random_paragraph }
+   
+   let(:topic) { Topic.create!(name: name, description: description) }
  # #1
    let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
  # #2
