@@ -1,6 +1,15 @@
 require 'rails_helper'
 
  RSpec.describe SessionsController, type: :controller do
+   
+  let(:new_user_attributes) do
+   {
+       name: "BlocHead",
+       email: "blochead@bloc.io",
+       password: "blochead",
+       password_confirmation: "blochead"
+   }
+   end
    let(:my_user) { User.create!(name: "Blochead", email: "blochead@bloc.io", password: "password") }
  
    describe "GET new" do
@@ -58,15 +67,7 @@ require 'rails_helper'
        expect(flash[:notice]).to be_present
      end
 
-     it "sets user password_confirmation properly" do
-       post :create, user: new_user_attributes
-       expect(assigns(:user).password_confirmation).to eq new_user_attributes[:password_confirmation]
-     end
 
-     it "logs the user in after sign up" do
-       post :create, user: new_user_attributes
-       expect(session[:user_id]).to eq assigns(:user).id
-     end 
  end
    
 end
