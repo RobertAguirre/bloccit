@@ -1,5 +1,7 @@
 class Topic < ActiveRecord::Base
    has_many :posts, dependent: :destroy
+   
+   has_many :comments, dependent: :destroy
  # #12
    has_many :labelings, as: :labelable
  # #13
