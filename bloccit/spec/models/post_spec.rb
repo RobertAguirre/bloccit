@@ -7,7 +7,7 @@ RSpec.describe Post, type: :model do
    let(:body) { RandomData.random_paragraph }
  # #1
    let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
- # #2
+   let(:topic) { Topic.create!(name: name, description: description) }
    let(:post) { topic.posts.create!(title: title, body: body, user: user) }
 
    it { is_expected.to belong_to(:topic) }
